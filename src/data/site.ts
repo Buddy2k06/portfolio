@@ -10,7 +10,7 @@ export const site = {
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/shreyas-shejwal-751402333' },
     // { label: 'itch.io', url: 'TODO' },
   ],
-  resume: '', // TODO: put resume.pdf in /public and set '/resume.pdf'
+  resume: '/ShreyasShejwalResume.pdf',
   skills: [
     { group: 'Engines', items: ['Unity (primary)', 'Unreal Engine (working knowledge)'] },
     { group: 'Languages', items: ['C#', 'C++'] },
