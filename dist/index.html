@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shreyas Shejwal</title><meta name="description" content="I code the systems and design the moments that make players smile."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet"><script>
+    (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+    if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    document.documentElement.dataset.theme=t;})();
+  </script><link rel="stylesheet" href="/_astro/about.GWI8MfNf.css"></head> <body> <div class="wrap"> <header class="top"> <a class="name" href="/">Shreyas Shejwal</a> <nav><a href="/#projects">Projects</a><a href="/about">About</a> <button class="theme" id="theme" type="button">Switch theme</button></nav> </header> <main> <section class="hero"> <div> <h1>I code the systems and design the moments that make players smile.</h1> <p>Shreyas Shejwal, Gameplay Systems Programmer &amp; Technical Designer. Open to internships and junior roles.</p> <div class="cta"> <a class="btn fill" href="/#projects">See the games</a> <a class="btn" href="https://github.com/Buddy2k06" rel="noopener">GitHub</a><a class="btn" href="https://www.linkedin.com/in/shreyas-shejwal-751402333" rel="noopener">LinkedIn</a>  <a class="btn" href="mailto:hello@example.com">Email me</a> </div> </div> <div class="flip" aria-hidden="true"><div class="plane"></div><small>Flat, then 3D. The idea behind Plateformer.</small></div> </section> <section class="block" id="projects"> <h2>Projects</h2> <div class="grid"><a class="card" href="/projects/plateformer"> <div class="thumb"><span>Gameplay clip coming soon</span></div> <h3>Plateformer</h3> <p>A platformer where the world flips between 2D and 3D on a timer, so a safe path in one is deadly in the other.</p> <ul class="tags"><li>Unity</li><li>C#</li><li>Technical Design</li><li>Level Design</li><li>Game Jam</li></ul> </a><a class="card" href="/projects/fairshots"> <div class="thumb"><img src="/media/fairshots/gameplay-2.jpg" alt="FairShots gameplay" loading="lazy"></div> <h3>FairShots</h3> <p>A Fruit Ninja style mobile game where you shoot flying objects instead of slicing them, and one of them is a bomb.</p> <ul class="tags"><li>Unity</li><li>C#</li><li>Mobile</li><li>Game Feel</li><li>Scoring Design</li></ul> </a></div> </section> <section class="block"> <h2>Skills</h2> <div class="skills"><div><h3>Engines</h3><ul><li>Unity (primary)</li><li>Unreal Engine (working knowledge)</li></ul></div><div><h3>Languages</h3><ul><li>C#</li><li>C++</li></ul></div><div><h3>Gameplay systems</h3><ul><li>Player controllers</li><li>Rigidbody physics</li><li>Spawners</li><li>Difficulty scaling</li></ul></div><div><h3>Design</h3><ul><li>Level design</li><li>Paper prototyping</li><li>Risk and reward systems</li><li>Scoring balance</li></ul></div><div><h3>Game feel</h3><ul><li>Screen shake</li><li>Audio feedback</li></ul></div><div><h3>Visuals</h3><ul><li>Basic shaders</li><li>Outline styling</li></ul></div><div><h3>Tools</h3><ul><li>Git</li><li>GitHub</li></ul></div></div> </section> </main> <footer> <a href="https://github.com/Buddy2k06" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/shreyas-shejwal-751402333" rel="noopener">LinkedIn</a> <a href="mailto:hello@example.com">hello@example.com</a>  </footer> </div> <script>
+    document.getElementById('theme').addEventListener('click',function(){
+      var n=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}
+      if(window.__renderMermaid)window.__renderMermaid();
+    });
+  </script> <script type="module">
+    // Mermaid loads only on pages that contain a mermaid code block.
+    const blocks=[...document.querySelectorAll('pre.language-mermaid')];
+    if(blocks.length){
+      const {default:mermaid}=await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
+      blocks.forEach(b=>{b.dataset.src=b.textContent;});
+      window.__renderMermaid=async()=>{
+        mermaid.initialize({startOnLoad:false,theme:document.documentElement.dataset.theme==='dark'?'dark':'neutral'});
+        blocks.forEach(b=>{b.removeAttribute('data-processed');b.textContent=b.dataset.src;b.classList.add('mermaid');});
+        await mermaid.run({nodes:blocks});
+      };
+      window.__renderMermaid();
+    }
+  </script> </body> </html>

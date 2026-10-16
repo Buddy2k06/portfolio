@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+const { title = site.name, description = site.pitch } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title><meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <script is:inline>
+    (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+    if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="name" href="/">{site.name}</a>
+      <nav><a href="/#projects">Projects</a><a href="/about">About</a>
+        <button class="theme" id="theme" type="button">Switch theme</button></nav>
+    </header>
+    <main><slot /></main>
+    <footer>
+      {site.links.map(l => <a href={l.url} rel="noopener">{l.label}</a>)}
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      {site.resume && <a href={site.resume}>Resume (PDF)</a>}
+    </footer>
+  </div>
+  <script is:inline>
+    document.getElementById('theme').addEventListener('click',function(){
+      var n=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}
+      if(window.__renderMermaid)window.__renderMermaid();
+    });
+  </script>
+  <script is:inline type="module">
+    // Mermaid loads only on pages that contain a mermaid code block.
+    const blocks=[...document.querySelectorAll('pre.language-mermaid')];
+    if(blocks.length){
+      const {default:mermaid}=await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
+      blocks.forEach(b=>{b.dataset.src=b.textContent;});
+      window.__renderMermaid=async()=>{
+        mermaid.initialize({startOnLoad:false,theme:document.documentElement.dataset.theme==='dark'?'dark':'neutral'});
+        blocks.forEach(b=>{b.removeAttribute('data-processed');b.textContent=b.dataset.src;b.classList.add('mermaid');});
+        await mermaid.run({nodes:blocks});
+      };
+      window.__renderMermaid();
+    }
+  </script>
+</body>
+</html>

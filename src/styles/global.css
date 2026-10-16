@@ -1,0 +1,63 @@
+:root{--bg:#f2f5f6;--ink:#14181c;--mute:#566069;--line:#d3dadd;--panel:#e7edef;--pink:#d6457a;--mint:#2f9d86;--code:#e9eff1}
+:root[data-theme=dark]{--bg:#14181c;--ink:#eef2f3;--mute:#9aa6ae;--line:#2b343b;--panel:#1c2227;--pink:#f0709c;--mint:#5cc8ae;--code:#1a2025}
+*{box-sizing:border-box}html{scroll-padding-top:4rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.65 'IBM Plex Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque','IBM Plex Sans',sans-serif;line-height:1.1;letter-spacing:-.02em;margin:0}
+a{color:inherit;text-decoration-color:var(--pink);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;gap:1rem;flex-wrap:wrap}
+header.top nav{display:flex;gap:1.4rem;align-items:center}
+header.top .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-decoration:none}
+button.theme{background:none;border:1px solid var(--line);color:var(--ink);padding:.25rem .7rem;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
+.hero{padding:4.5rem 0 3rem;display:grid;gap:2.5rem;grid-template-columns:1fr;align-items:center}.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800}
+.hero p{color:var(--mute);max-width:34rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
+.btn{display:inline-block;padding:.55rem 1.1rem;border-radius:.4rem;border:2px solid var(--ink);text-decoration:none;font-weight:600}
+.btn.fill{background:var(--ink);color:var(--bg)}
+/* The one memorable element: a panel that flips between flat (2D) and tilted (3D), like Plateformer. */
+.flip{perspective:700px;justify-self:center}
+.flip .plane{width:min(15rem,60vw);aspect-ratio:1;border:3px solid var(--ink);border-radius:.5rem;background:var(--mint);position:relative;transform-style:preserve-3d;animation:flip 6s ease-in-out infinite}
+.flip .plane::before,.flip .plane::after{content:'';position:absolute;border:3px solid var(--ink);background:var(--pink)}
+.flip .plane::before{width:38%;height:16%;left:10%;bottom:22%;animation:lift 6s ease-in-out infinite}
+.flip .plane::after{width:30%;height:16%;right:8%;top:24%;background:#f4d03f;animation:lift2 6s ease-in-out infinite}
+.flip small{display:block;text-align:center;color:var(--mute);margin-top:1rem;font-size:.9rem}
+@keyframes flip{0%,40%{transform:rotateX(0) rotateZ(0)}55%,90%{transform:rotateX(52deg) rotateZ(-28deg)}100%{transform:rotateX(0) rotateZ(0)}}
+@keyframes lift{0%,40%{transform:translateZ(0)}55%,90%{transform:translateZ(60px)}100%{transform:translateZ(0)}}
+@keyframes lift2{0%,40%{transform:translateZ(0)}55%,90%{transform:translateZ(-30px)}100%{transform:translateZ(0)}}
+@media (prefers-reduced-motion:reduce){.flip .plane,.flip .plane::before,.flip .plane::after{animation:none}}
+@media (max-width:42rem){.hero{grid-template-columns:1fr;padding-top:2.5rem}}
+section.block{padding:2.5rem 0;border-top:1px solid var(--line)}
+section.block>h2{font-size:1.9rem;margin-bottom:1.5rem}
+.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.card{text-decoration:none;display:block}
+.card .thumb{aspect-ratio:16/9;background:var(--panel);border:2px solid var(--ink);border-radius:.4rem;overflow:hidden;display:grid;place-items:center;color:var(--mute);font-size:.9rem}
+.card .thumb img,.card .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.card h3{font-size:1.45rem;margin:.9rem 0 .2rem}.card:hover h3{color:var(--pink)}
+.card p{margin:0 0 .6rem;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.tags li{border:1px solid var(--line);border-radius:99px;padding:.05rem .65rem;font-size:.85rem;color:var(--mute)}
+.skills{display:grid;gap:1.2rem 2rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.skills h3{font-size:1.05rem;margin-bottom:.35rem}.skills ul{margin:0;padding-left:1.1rem;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);display:flex;gap:1.5rem;flex-wrap:wrap}
+.proj-head{padding:2rem 0 1rem}.proj-head h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+.proj-head p{color:var(--mute);font-size:1.2rem;max-width:40rem}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1rem 1.5rem;margin:1.5rem 0}
+.specs dt{color:var(--mute);font-size:.9rem}.specs dd{margin:0;font-weight:600}
+.hero-media{aspect-ratio:16/9;background:var(--panel);border:2px solid var(--ink);border-radius:.4rem;overflow:hidden;display:grid;place-items:center;color:var(--mute);text-align:center;padding:1rem}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}
+.prose{max-width:65rem;padding:1rem 0 3rem}
+.prose h2{font-size:1.8rem;margin:3rem 0 .8rem}.prose h3{font-size:1.3rem;margin:2rem 0 .5rem}
+.prose img,.prose video{max-width:100%;border:2px solid var(--ink);border-radius:.4rem;display:block;margin:1.5rem 0}
+.prose code{background:var(--code);padding:.1rem .3rem;border-radius:.25rem;font:.9em 'JetBrains Mono',monospace}
+.prose pre{background:var(--code)!important;padding:1rem;border-radius:.4rem;overflow-x:auto;font:.88rem/1.55 'JetBrains Mono',monospace;border:1px solid var(--line)}
+.prose pre code{background:none;padding:0}
+.prose pre.astro-code span{color:var(--shiki-light)}
+:root[data-theme=dark] .prose pre.astro-code span{color:var(--shiki-dark)}
+.prose pre.language-mermaid{background:none!important;border:0;text-align:center}
+.prose table{border-collapse:collapse;width:100%;margin:1.2rem 0}
+.prose th,.prose td{border-bottom:1px solid var(--line);padding:.5rem .6rem;text-align:left}
+.todo{border:2px dashed var(--pink);padding:.8rem 1rem;border-radius:.4rem;color:var(--mute)}
+.about-top{display:flex;gap:2rem;align-items:center}
+.prose img.portrait{width:16rem;max-width:100%;aspect-ratio:4/3;height:auto;border-radius:.4rem;object-fit:cover;border:2px solid var(--ink);margin:0;flex-shrink:0}
+@media (max-width:42rem){.about-top{flex-direction:column;align-items:flex-start}}

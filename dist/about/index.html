@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About | Shreyas Shejwal</title><meta name="description" content="I code the systems and design the moments that make players smile."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet"><script>
+    (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+    if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    document.documentElement.dataset.theme=t;})();
+  </script><link rel="stylesheet" href="/_astro/about.GWI8MfNf.css"></head> <body> <div class="wrap"> <header class="top"> <a class="name" href="/">Shreyas Shejwal</a> <nav><a href="/#projects">Projects</a><a href="/about">About</a> <button class="theme" id="theme" type="button">Switch theme</button></nav> </header> <main> <div class="proj-head"><h1>About</h1></div> <article class="prose"> <p>I'm Shreyas, a game developer studying for a BCA in Game Development at Ajeenkya DY Patil University, Pune (graduating <code>TODO year</code>). I work mostly in Unity with C#, and I also write C++.</p> <p>I think making games is art, and the best part of any art is when someone understands it and enjoys it. A game is the one medium where people don't only look at your work, they play it. That is what I'm after: something people have fun with and remember.</p> <h2>What shapes how I design</h2> <p>Contra and Super Contra, A Way Out and Helldivers taught me how good a game feels when two people share it. Florence showed me that a game can be about feeling something instead of winning. GTA and Minecraft are systems that give players room to make their own stories. I try to build the second kind of thing, with the warmth of the first.</p> <h2>What I do on a team</h2> <p>I come up with mechanics, prototype them quickly, and hand them to programmers with clear intent, as I did on Plateformer. When I work alone, as on FairShots, I build the whole thing myself and spend the last hours on game feel.</p> <h2>Get in touch</h2> <p>Open to internships and junior roles. Email <a href="mailto:hello@example.com">hello@example.com</a>, or find me on <a href="https://github.com/Buddy2k06" rel="noopener">GitHub</a> or <a href="https://www.linkedin.com/in/shreyas-shejwal-751402333" rel="noopener">LinkedIn</a>.</p> <p class="todo">Resume link goes here once you add resume.pdf (see src/data/site.ts).</p> </article> </main> <footer> <a href="https://github.com/Buddy2k06" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/shreyas-shejwal-751402333" rel="noopener">LinkedIn</a> <a href="mailto:hello@example.com">hello@example.com</a>  </footer> </div> <script>
+    document.getElementById('theme').addEventListener('click',function(){
+      var n=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}
+      if(window.__renderMermaid)window.__renderMermaid();
+    });
+  </script> <script type="module">
+    // Mermaid loads only on pages that contain a mermaid code block.
+    const blocks=[...document.querySelectorAll('pre.language-mermaid')];
+    if(blocks.length){
+      const {default:mermaid}=await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
+      blocks.forEach(b=>{b.dataset.src=b.textContent;});
+      window.__renderMermaid=async()=>{
+        mermaid.initialize({startOnLoad:false,theme:document.documentElement.dataset.theme==='dark'?'dark':'neutral'});
+        blocks.forEach(b=>{b.removeAttribute('data-processed');b.textContent=b.dataset.src;b.classList.add('mermaid');});
+        await mermaid.run({nodes:blocks});
+      };
+      window.__renderMermaid();
+    }
+  </script> </body> </html>

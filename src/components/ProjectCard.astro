@@ -1,0 +1,10 @@
+---
+import Media from './Media.astro';
+const { id, data } = Astro.props;
+---
+<a class="card" href={`/projects/${id}`}>
+  <div class="thumb"><Media src={data.hero} alt={`${data.title} gameplay`} /></div>
+  <h3>{data.title}</h3>
+  <p>{data.pitch}</p>
+  <ul class="tags">{data.tags.map((t: string) => <li>{t}</li>)}</ul>
+</a>

@@ -1,0 +1,8 @@
+---
+// Shows an image or looping clip; shows a labelled placeholder when src is empty.
+const { src = '', alt = '', label = 'Gameplay clip coming soon' } = Astro.props;
+const isVideo = /\.(webm|mp4)$/i.test(src);
+---
+{!src ? <span>{label}</span>
+ : isVideo ? <video src={src} autoplay muted loop playsinline aria-label={alt}></video>
+ : <img src={src} alt={alt} loading="lazy" />}
